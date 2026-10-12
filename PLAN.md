@@ -183,93 +183,109 @@ Order of execution once this plan is approved:
 6. Branch protection on `main` requires the `ci` check. Luca does this by hand (steps in `NOTES.md`) once CI has run at least once, because the check can't be selected before then. Note: GitHub doesn't let you approve your own PR, so "approve" means: check that CI is green, then merge.
 7. The loop: `/process-issue n` → PR → CI green → Luca merges → `/clear` → next issue.
 
-### Issue outline (v2, revised after competitor research — see replica/research.md)
-Each line becomes one atomic issue. Final wording and the 5-section bodies are written at issue-creation time.
+### Issue outline (v3, quality-checked; deps in brackets)
+Each line = one atomic issue. Full five-section bodies are written at creation time.
 
 **Setup**
-1. Set up the test suite (Xcode project, NoteCore package, Swift Testing + XCTest, running locally)
-2. Set up CI via GitHub Actions (job `ci`: NoteCore tests, app build+tests, SwiftLint)
-3. Set up XcodeBuildMCP for simulator UI testing
-4. Spike: verify free iCloud Drive folder sync on iPad + Mac, and check whether the system "Auto-refine handwriting" toggle can alter ink in our canvas (throwaway; findings into PLAN.md)
+1. Set up the test suite (Xcode project, NoteCore package, Swift Testing + XCTest) [—]
+2. Set up CI via GitHub Actions (job `ci`: tests + SwiftLint, blocks merge) [1]
+3. Set up XcodeBuildMCP for simulator UI testing [1]
+4. Spike: verify iCloud Drive folder sync + Auto-refine risk on iPad and Mac [1]
 
 **Core model (NoteCore)**
-5. Add Stroke/StrokePoint model + codec
-6. Add Page model (paper type, PDF background)
-7. Add Notebook model
-8. Add Folder tree model
-9. Add operation types + per-device append-only log (flushed on pen-up)
-10. Add version-vector merge
-11. Add concurrent-edit conflict detection (keep both)
-12. Add notebook package FileStore (per-page files, atomic coordinated writes)
-13. Add read-only fallback for damaged or newer-format notebooks
+5. Add Stroke and StrokePoint model with JSON codec [1]
+6. Add Page model (paper type, PDF background, size) [5]
+7. Add Notebook model with fractional page order [6]
+8. Add Folder tree model [7]
+9. Add operation types and per-device append-only log [5,6,7]
+10. Add version-vector merge of device logs [9]
+11. Add concurrent-edit conflict detection (keep both) [10]
+12. Add notebook package FileStore (per-page files, atomic coordinated writes) [9]
+13. Add read-only fallback for damaged or newer-format notebooks [12]
 
 **MVP UI**
-14. Add library folder tree screen
-15. Add create/rename/move for notebooks and folders
-16. Add delete-to-Trash for notebooks
-17. Add PencilKit canvas + PKStroke↔Stroke conversion
-18. Add ballpoint pen rendering: render-time smoothing, pressure clamp, predicted points display-only
-19. Add autosave on pen-up + reload on open
-20. Add vertical page scroll + zoom with virtualised pages
-21. Add paper chips at page foot (lined/grid/blank, last-used default) + change paper
-22. Restore last page/offset/zoom on reopen
-23. Add top toolbar: 3 pens + 2 highlighters, long-press to edit, undo at top-left
-24. Render highlighter behind ink + snap highlighter straight
-25. Add stroke eraser
-26. Add pixel eraser (replaceStroke)
-27. Add lasso select/move/resize (width preserved)
-28. Add tap-to-select single stroke + grouping
-29. Add operation-based undo/redo
-30. Add two-finger-tap undo / three-finger-tap redo
-31. Add finger-drawing toggle (off by default)
-32. Add text boxes (snap to ruled lines)
-33. Add page sidebar: thumbnails, reorder, multi-select
-34. Add bookmarks + outline (incl. PDF table of contents)
-35. Add PDF import as new notebook
-36. Add PDF insert-at-position + blank pages between slides
-37. Add vector PDF export matching screen
-38. Enable Mac Catalyst build: sidebar layout, shortcuts, trackpad ink
+14. Add library folder tree screen [8,12]
+15. Add create/rename/move for notebooks and folders [14]
+16. Add delete-to-Trash for notebooks [15]
+17. Add PencilKit canvas with PKStroke↔Stroke conversion [5]
+18. Add ballpoint rendering: render-time smoothing, pressure clamp, display-only prediction [17]
+19. Add autosave on pen-up and reload on open [12,17]
+20. Add vertical page scroll and zoom with virtualised pages [19]
+21. Add paper chips at page foot with last-used default [20]
+22. Add change-paper for an existing page [21]
+23. Restore last page, offset and zoom on reopen [20]
+24. Add top toolbar with 3 pen and 2 highlighter presets [17]
+25. Add long-press preset editing (colour, width) [24]
+26. Render highlighter strokes behind ink [24]
+27. Snap highlighter strokes straight [26]
+28. Add stroke eraser [19]
+29. Add pixel eraser via replaceStroke [28]
+30. Add lasso select, move and resize (width preserved) [19]
+31. Add tap-to-select a single stroke [30]
+32. Add grouping of selected strokes [30]
+33. Add operation-based undo/redo with top-left undo button [19,24]
+34. Add two-finger-tap undo and three-finger-tap redo [33]
+35. Add finger-drawing toggle (off by default) [17]
+36. Add text boxes that snap to ruled lines [19,21]
+37. Add page sidebar with thumbnails and drag-reorder [20]
+38. Add multi-select page actions in sidebar [37]
+39. Add page bookmarks with bookmark filter [37]
+40. Add outline view incl. PDF table of contents [39]
+41. Add PDF import as a new notebook [20]
+42. Add PDF insert at position into an existing notebook [41]
+43. Add insert blank page between pages [41]
+44. Add vector PDF export matching screen [41]
+45. Enable Mac Catalyst build with trackpad/mouse inking [19]
+46. Add Mac sidebar + page window layout [45,14]
+47. Add Mac keyboard shortcuts [46]
 
 **Sync**
-39. Add sync folder picker + security-scoped bookmark
-40. Keep sync folder downloaded; open from local data instantly
-41. Detect remote changes and merge
-42. Add honest sync status indicator
-43. Add conflict badge + resolve UI
-44. Add page-level Trash + 30-day purge
-45. Add daily local snapshots + Export all
-46. Add automatic PDF mirror
+48. Add sync folder picker with security-scoped bookmark [4,12]
+49. Keep sync folder downloaded and open from local data [48]
+50. Detect remote changes and merge them live [49,11]
+51. Add honest per-notebook sync status indicator [50]
+52. Add conflict badge and resolve UI [50]
+53. Add page-level Trash with 30-day purge [50,16]
+54. Add daily local snapshots (30 days) [50]
+55. Add Export all (zip + PDFs) [44]
+56. Add automatic PDF mirror in sync folder [44,50]
 
 **Pencil Pro**
-47. Squeeze: tap toggles eraser, hold = temporary eraser (in-app setting, respects system preference)
-48. Double-tap opens palette at pen tip
-49. Add hover preview
-50. Add haptics
-51. Barrel roll rotates highlighter chisel
+57. Add squeeze: tap toggles eraser, hold = temporary eraser (in-app setting) [28]
+58. Add double-tap palette at pen tip [24]
+59. Add hover tool preview [24]
+60. Add Pencil Pro haptics [57]
+61. Add barrel roll for highlighter chisel [26]
 
-**Shapes (Phase 4a — right after MVP)**
-52. Add hold-to-snap recognition (line, axes, arrow, circle, ellipse, rectangle, curve) stored as reversible interpretation
-53. Add "show original" chip + per-type and master toggles
-54. Add angle and endpoint snapping
+**Shapes (Phase 4a, right after MVP)**
+62. Add ShapeInterpretation model stored beside raw strokes [9]
+63. Add hold-to-snap recognition (line, axes, arrow, circle, ellipse, rectangle, curve) [62,19]
+64. Add show-original chip and snap-only undo [63]
+65. Add per-shape-type and master snapping toggles [63]
+66. Add angle snapping (±5°) [63]
+67. Add endpoint joining with target dot [63]
 
 **Neatening (Phase 4b)**
-55. Add smoothing transform to neatened layer
-56. Add line + word segmentation
-57. Add maths detection + fraction-bar protection
-58. Add "leave alone" region marker
-59. Add baseline straightening
-60. Add size/slant/spacing evening
-61. Add NeatenedVariant op + per-line revert
-62. Add live line-by-line trigger, global switch, strength slider
+68. Add NeatenedVariant model and per-line revert [9]
+69. Add smoothing transform for neatened layer [68]
+70. Add line and word segmentation [68]
+71. Add maths detection with fraction-bar protection [70]
+72. Add leave-alone region marker [68]
+73. Add baseline straightening [70,71]
+74. Add per-word size evening [73]
+75. Add slant and word-spacing evening [73]
+76. Add live line-by-line neatening trigger [74,75]
+77. Add global neatening switch and strength slider [76]
 
 **Gestures**
-63. Add scratch-out-and-hold to erase (opt-in)
-64. Add insert-space gesture
+78. Add scratch-out-and-hold to erase (opt-in) [28,71]
+79. Add insert-space gesture [30]
 
 **Search**
-65. Add background handwriting index with PKStrokeRecognizer (re-index on recognitionVersion change; Vision OCR for PDF text only)
-66. Add search UI (one box, opens exact page)
-67. Embed recognised text in exported PDFs
+80. Add background handwriting index with PKStrokeRecognizer [12,19]
+81. Add PDF text extraction for search [41,80]
+82. Add search UI that opens the exact page [80,81]
+83. Embed recognised text in exported PDFs [44,80]
 
 **After MVP (not yet issues):** tabs / split view, more templates.
 
