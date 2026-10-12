@@ -1,0 +1,21 @@
+# Never commit notes, handwriting samples or competitor screenshots
+*.inkbook/
+samples/
+replica/screens/
+
+# Xcode / Swift
+xcuserdata/
+DerivedData/
+build/
+.build/
+.swiftpm/
+*.xcuserstate
+
+# Signing
+*.mobileprovision
+*.p12
+*.cer
+
+# Secrets / local
+.env*
+.DS_Store
