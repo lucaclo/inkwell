@@ -1,0 +1,86 @@
+feature,area,priority,original,clone,notes
+Library with sidebar of nested folders,library,must,yes,no,Notability allows 6 levels; Inkwell plans nested folders mapped 1:1 to iCloud Drive subfolders
+Smart lists: All / Recents / Favorites / Unfiled,library,should,yes,no,Recents = last 10 opened; cheap to build
+Grid and list views with sort by name / modified / created,library,should,yes,no,
+Manual drag ordering inside a folder,library,could,no,no,Requested (review 14634524612); Notability only has Sort by
+Allow duplicate note names in different folders,library,must,no,no,Notability forbids it and users complain; folders-as-directories make this natural
+Drag a note onto a folder to move it,library,must,yes,no,Long-press then drag
+Folder colour,library,could,yes,no,
+Locked folders,library,skip,yes,no,Personal device; not needed
+Recently Deleted with 30-day restore,library,must,yes,no,Supports the no-data-loss rule; do it as a .trash folder in iCloud Drive
+One-tap new note opening on the default paper,notes,must,yes,no,+New then write; default title with date
+Paper picker shown on a fresh page (lined / grid / blank),notes,must,yes,no,Notability shows Rule/Grid/Dot chips at the bottom of a new note; Inkwell does it per new page
+Different paper per page within one note,notes,must,no,no,Notability allows only one template per note and users ask for this (reviews 12536535630 14623860223)
+Line/grid spacing control,notes,should,yes,no,Notability: 10 spacing steps
+Page sizes (Letter / A4 / etc.),notes,skip,yes,no,Inkwell uses iPad-shaped pages
+Seamless vertical scroll with ink crossing page breaks,editor,must,yes,no,The most-praised pattern (HN 29373570 39434852 18757865)
+Single-page horizontal view,editor,skip,yes,no,Inkwell is vertical only
+New page appended automatically when you scroll past the end,editor,must,yes,no,
+One-finger scroll while the Pencil draws,editor,must,yes,no,Pencil-only drawing by default
+Pen with pressure,ink,must,yes,no,3 pens in slim top toolbar
+Pencil tool with tilt shading,ink,could,yes,no,
+Highlighter that stays behind ink,ink,must,yes,no,2 highlighters
+Dashed / dotted strokes,ink,could,yes,no,Useful for economics diagrams (projections)
+Duplicate a tool with its own colour and size (presets),ink,must,yes,no,Notability duplicates Pen/Pencil/Highlighter/Eraser; Inkwell's 3 pens + 2 highlighters are exactly this
+8 pinned colours + custom colours,ink,should,yes,no,
+Pen stabilisation / smoothing option,ink,should,no,no,Requested (review 14506617945)
+Partial (precise) eraser,eraser,must,yes,no,Inkwell: hide ranges; never rewrite stroke points
+Whole-stroke eraser,eraser,must,yes,no,
+Auto-return to previous pen after erasing,eraser,should,yes,no,Make it an option; users disagree
+Squeeze-and-hold = eraser on Pencil Pro,pencil,must,yes,no,Notability had it then changed defaults; users complained when it moved. Keep it stable
+Double-tap = palette,pencil,must,yes,no,Notability offers 5 double-tap choices
+Squeeze radial/arc menu near the nib,pencil,could,yes,no,
+Pencil hover preview,pencil,should,yes,no,Hover preview of tool/stroke
+Pencil Pro haptics on snap,pencil,could,yes,no,One review found haptics annoying (14638371818): make it optional
+Barrel roll for nib angle,pencil,could,no,no,Not documented for Notability
+Scribble-to-erase,pencil,could,no,no,Requested (review 14584607281); conflicts with cursive. Gate it
+2-finger tap undo / 3-finger tap redo,gestures,must,yes,no,
+Hold at end of stroke to snap a straight line,shapes,must,yes,no,Key for graph axes
+Hold to snap perfect shapes with alignment guides to the grid,shapes,must,yes,no,Circles ellipses triangles rectangles polygons arrows
+Edit shape control points after snapping,shapes,should,yes,no,
+Toggle and hold-time setting for snapping,shapes,should,no,no,Requested (review 14517812495)
+Lasso select ink: move / resize / recolour / copy / delete,lasso,must,yes,no,
+Tap a stroke to select it without lasso,lasso,could,no,no,Requested (review 14517812495)
+Mirror selected ink,lasso,could,yes,no,
+Convert selection to text,lasso,could,yes,no,Must keep the original ink (Inkwell rule)
+Convert selection to maths / LaTeX,lasso,could,yes,no,Paid in Notability; on-device options are limited
+Reversible line-by-line neatening (maths skipped),neatening,must,no,no,Not in Notability; Inkwell's own idea
+Layers or bring-to-front / send-to-back,editor,could,no,no,Requested (review 14530082754)
+Ruler tool,editor,should,yes,no,Praised (review 14530082754)
+Zoom View writing window,editor,skip,yes,no,Not needed on a 13in iPad Pro
+Text boxes (tap anywhere to type / draw a box),text,must,yes,no,
+Typed text aligned to ruled lines,text,should,no,no,Notability's typed text ignores the lines (review 14540204223)
+Content manager: page thumbnails / reorder / add / delete / bookmark,pages,should,yes,no,
+Import PDF as a new note,pdf,must,yes,no,Files / share sheet / Mac drag-drop
+Append PDF to an existing note,pdf,should,yes,no,Mac: drop on an open note
+Add blank margin space to imported PDF pages,pdf,should,yes,no,Very useful for slide annotation
+Insert blank pages between PDF pages,pdf,should,yes,no,HN 40662917 describes exactly this workflow
+Export note as PDF (with/without paper),pdf,must,yes,no,Share icon then destination = 2 taps
+Export as image,pdf,could,yes,no,
+Large-PDF performance,pdf,must,yes,no,Notability drains the battery on huge PDFs (review 14584607281)
+Library search across titles + typed text,search,must,yes,no,
+Handwriting search (on-device recognition),search,must,yes,no,Paid tier in Notability. Inkwell: Vision / on-device
+In-note search with result jump,search,should,yes,no,
+Search filter to a folder,search,should,yes,no,
+Note switcher (edge swipe to jump between notes),navigation,should,yes,no,
+Split view of two notes side by side or top/bottom,navigation,should,yes,no,Planned later as tabs/split
+Tabs for open notes,navigation,could,no,no,Requested (review 14616991002)
+iCloud two-way sync,sync,must,yes,no,Inkwell: iCloud Drive folder with file coordination and conflict copies
+Version history / restore older version,sync,must,yes,no,Notability: renaming wipes history. Inkwell must not do that
+Third-party one-way backup,sync,could,yes,no,
+No account or login required,sync,must,no,no,Biggest 2026 complaint
+Works fully offline,sync,must,yes,no,Notability now needs a login
+Mac app with the same library and editor,mac,must,yes,no,Mac reviews report crashes and spacing drift
+Mac: drag files in / File > Import,mac,should,yes,no,
+Mac: open note in new window,mac,should,yes,no,
+Keyboard shortcuts (new note / search / undo / zoom),mac,should,yes,no,Notability's Mac set has ⌘-I clash and gaps
+Infinite canvas / whiteboard note,editor,skip,no,no,Requested (reviews 14009055559 14593065639) but outside Inkwell scope for now
+Tables,text,skip,no,no,Requested (review 13286624834)
+Presentation mode / laser pointer,editor,skip,yes,no,
+Tape (hide-to-reveal study tool),editor,skip,yes,no,
+Audio recording synced to ink,audio,skip,yes,no,Context only
+AI summaries / chat / quizzes / flashcards,ai,skip,yes,no,Out of scope; users call it bloat
+Notability Cloud + accounts,sync,skip,yes,no,Inkwell has no server
+Live collaboration / link sharing,sharing,skip,yes,no,No server
+Template Gallery marketplace,templates,skip,yes,no,Licensed content
+iPhone / Android / web apps,platforms,skip,yes,no,

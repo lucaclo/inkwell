@@ -1,0 +1,58 @@
+feature,area,priority,original,clone,notes
+Strokes stay editable objects after drawing (select move resize recolour),stroke model,must,yes,no,Core of Inkwell neatening; raw ink kept immutable and edits stored as transforms
+Per-tool live smoothing setting (0% raw to 100% straight),stroke model,must,yes,no,Concepts default per preset; an HN user writes maths at 8-12%; Inkwell: low default and never applied to maths
+Raw input kept separately from smoothed or snapped output,stroke model,must,partial,no,Concepts behaviour inferred (guess); Inkwell hard rule: original ink never altered
+Shape recognition by draw-and-hold (line circle ellipse rect triangle arrow),diagrams,must,yes,no,Concepts fires after about 0.5 s; reviews say it is intrusive and cannot be disabled; Inkwell needs a toggle and a one-tap revert
+After recognition keep moving the Pencil to scale or rotate before lifting,diagrams,must,yes,no,Cheap and great for axes and curves
+Line guide: constrain strokes to a straight line between handles,diagrams,should,yes,no,For axes; Inkwell may only need recognition plus an angle snap
+Ellipse guide where double-tapping the centre makes a perfect circle,diagrams,could,yes,no,Persistent on-canvas guides clutter a notes app
+Arc and angle guides (double-tap snaps to 90 degrees),diagrams,could,yes,no,Right-angle axes are useful; an angle snap on recognised lines covers it
+Snap to grid and align to grid (H/V; 45 degrees on graph paper),diagrams,should,yes,no,For grid pages in Inkwell; snap angles of 0/45/90
+Auto-complete: connect a stroke end to nearby endpoints or intersections,diagrams,must,yes,no,Arrowheads and curves meeting axes; Concepts shows small target circles to tap
+Snap while editing to key points (ends corners centre) of other strokes,diagrams,should,yes,no,Shifting a demand curve parallel; snapping a label to an axis end
+Measure labels and drawing scale,diagrams,skip,yes,no,CAD feature; clutter for notes
+Shape recognition limited to user-chosen shape types,diagrams,should,no,no,Users asked for lines circles ellipses only; arrowheads unwanted
+Nudge: push or pull a stroke like string,stroke model,could,yes,no,Nice for bending a supply curve; niche
+Slice eraser that cuts vector strokes cleanly,stroke model,should,yes,no,Partial erase for notes; Inkwell squeeze = eraser
+Non-destructive mask eraser,stroke model,skip,yes,no,Users find masks confusing (they do not move with selections)
+Lasso and item-picker selection with partial or whole-stroke toggle,selection,must,yes,no,Lasso is free in Inkwell; avoid picking up hidden strokes
+Tap-and-hold the canvas to select without switching tools,selection,should,yes,no,Adjustable hold time
+Group or ungroup strokes into one object,selection,should,yes,no,Keep a diagram together
+Transform: scale or stretch keeps stroke width; rotate; flip,selection,must,yes,no,Users asked to scale shapes without changing thickness
+Exact values by tap-and-hold on size or angle fields,selection,could,yes,no,Probably overkill for notes
+Radial tool wheel with 8 slots and size/opacity/smoothing ring,tool UI,skip,yes,no,Too heavy for a slim top-toolbar notes app; many reviews call the UI unintuitive
+Slim toolbar with fixed tool slots and remembered presets per slot,tool UI,must,yes,no,Concepts' tool bar mode; Inkwell 3 pens + 2 highlighters
+Tap-hold-slide on a slot to adjust size without opening a menu,tool UI,should,yes,no,Fast size change
+Four size presets per tool,tool UI,should,yes,no,Concepts shows 4 presets
+Compact or hidden UI modes,tool UI,could,yes,no,Focus mode for writing
+Left-handed mirroring of the UI,tool UI,could,yes,no,Personal app; only if Luca needs it
+Two-finger tap undo; three-finger tap redo (configurable),history,must,yes,no,Standard; users ask for squeeze or double-tap undo
+Scrubbable history to move back through a drawing,history,should,unverified,no,Older Concepts reviews praise it; not in today's manual; Inkwell could do per-page history of edit operations
+Neatening and snap revert per stroke (show original),history,must,no,no,Concepts has no documented revert-to-raw; Inkwell differentiator
+Layers with automatic per-tool sorting,layers,could,yes,no,Highlighters could go on an under-layer automatically; full layers clutter notes
+Layer focus mode (dim other layers),layers,skip,yes,no,Not needed for notes
+Grid types: dot / graph / lined / isometric,pages,must,yes,no,Inkwell: lined/grid/blank per page
+Perspective grids,pages,skip,yes,no,Art/architecture only
+Maths x-y plane grid type,pages,could,no,no,Requested by a user; Inkwell could offer an axes stamp instead
+Infinite canvas,pages,skip,yes,no,Inkwell uses iPad-shaped pages with vertical scroll; reviews say people get lost and the zoom is not infinite
+Artboard / page frame used for export,pages,should,yes,no,Pages are Inkwell's artboards
+Nested folders with drag-and-drop,organisation,must,yes,no,Concepts allows unlimited subfolders
+Recently Deleted (recoverable trash),organisation,must,yes,no,No data loss
+Folder notes field,organisation,skip,yes,no,Not needed
+Search drawings,organisation,should,partial,no,Concepts searches by name only (guess); Inkwell wants handwriting search
+Files stored as visible packages in Files / iCloud Drive,sync,must,yes,no,Inkwell's iCloud Drive folder plan; Concepts made iCloud a separate sidebar root
+Conflict-safe iCloud sync,sync,must,unverified,no,Concepts does not document conflict handling; several reviews report lost work
+Native Mac app,platform,must,no,no,Concepts has none (reviews 2026); Inkwell Mac Catalyst
+PDF import with pages placed as objects and annotated,pdf,should,yes,no,Inkwell: PDF pages become Inkwell pages instead
+PDF export of pages (multi-page),export,must,partial,no,Concepts makes multi-page only via PDF Bounds
+SVG / PNG export of a selection,export,could,yes,no,Paste a diagram into an essay
+Text labels on canvas,text,should,yes,no,Users dislike the separate label UI; Inkwell text boxes inline
+Pencil Pro squeeze configurable action,pencil,must,yes,no,Inkwell: squeeze = eraser
+Double-tap configurable action,pencil,must,yes,no,Inkwell: double-tap = palette
+Barrel roll rotates the brush stamp,pencil,could,yes,no,Only matters for a chisel highlighter
+Hover preview of the brush,pencil,should,yes,no,Shows the eraser or pen size before touching
+Pressure with sane min/max width for handwriting,stroke model,must,partial,no,Users complain the pressure pen goes from hairline to fat
+Object library and brush marketplace,library,skip,yes,no,Licensed content; out of scope
+Collaboration and business plans,account,skip,yes,no,Out of scope
+DXF export and CAD measurement,export,skip,yes,no,Not needed
+Image Playground import,import,skip,yes,no,Not needed

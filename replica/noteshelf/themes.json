@@ -1,0 +1,402 @@
+{
+ "_about": "Themes reviews.py sorts feedback into. Patterns are Python regular expressions, matched case-insensitively against the review text. kind is complaint (something users hate) or request (something users want that is missing). Edit freely: add the app category's own words (for a booking app: double booking, time zone, no-show). Adapted for handwritten note-taking apps (Noteshelf research for Inkwell).",
+ "request_patterns": [
+  "\\bi wish\\b",
+  "\\bplease add\\b",
+  "\\bwould be (nice|great|good|helpful)\\b",
+  "\\bwould love\\b",
+  "\\bneeds? (a|an|the|to|more)\\b",
+  "\\bno way to\\b",
+  "\\bthere'?s no (way|option)\\b",
+  "\\b(can'?t|cannot|unable to) (even )?(add|change|edit|set|choose|export|import|customi[sz]e|connect|undo|delete|turn off)\\b",
+  "\\b(missing|lacks|lacking)\\b",
+  "\\bdoesn'?t (have|support|let|allow)\\b",
+  "\\bif only\\b",
+  "\\bfeature request\\b",
+  "\\bwhy (can'?t|isn'?t|doesn'?t)\\b"
+ ],
+ "themes": [
+  {
+   "id": "pricing",
+   "label": "Price and paywalls",
+   "kind": "complaint",
+   "patterns": [
+    "\\bexpensive\\b",
+    "\\boverpriced\\b",
+    "\\bpric(e|es|ey|ing)\\b",
+    "\\bpaywall",
+    "\\bsubscription\\b",
+    "\\bper (month|seat|user)\\b",
+    "\\bfree (plan|tier|version)\\b",
+    "\\bupgrade to\\b",
+    "\\bpremium\\b",
+    "\\bnot worth\\b",
+    "\\bcost(s|ly)?\\b",
+    "\\bpay(ing)?\\b",
+    "\\blifetime\\b",
+    "\\bone.?time\\b",
+    "\\bweekly\\b",
+    "\\bper week\\b",
+    "\\bfree trial\\b",
+    "\\bfree\\b"
+   ]
+  },
+  {
+   "id": "billing",
+   "label": "Billing, cancelling and refunds",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcharged\\b",
+    "\\brefund",
+    "\\bcancel(l?ing|l?ed|lation)?\\b",
+    "\\bauto.?renew",
+    "\\bhidden (fee|charge)",
+    "\\bbilling\\b",
+    "\\bscam\\b",
+    "\\bcredit card\\b"
+   ]
+  },
+  {
+   "id": "bugs",
+   "label": "Bugs and crashes",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcrash(es|ed|ing)?\\b",
+    "\\bbugs?\\b",
+    "\\bbuggy\\b",
+    "\\bglitch",
+    "\\bfreez(e|es|ing)\\b",
+    "\\bbroken\\b",
+    "\\b(doesn'?t|does not|stopped) work",
+    "\\bnot working\\b",
+    "\\berror\\b",
+    "\\bcrash",
+    "\\bunusable\\b"
+   ]
+  },
+  {
+   "id": "performance",
+   "label": "Slow, laggy, heavy",
+   "kind": "complaint",
+   "patterns": [
+    "\\bslow\\b",
+    "\\blag(gy|s)?\\b",
+    "\\bloading\\b",
+    "\\btakes forever\\b",
+    "\\bbattery\\b",
+    "\\bsluggish\\b",
+    "\\bheavy\\b"
+   ]
+  },
+  {
+   "id": "data",
+   "label": "Sync and lost data",
+   "kind": "complaint",
+   "patterns": [
+    "\\bsync(ing|s|ed)?\\b",
+    "\\blost (my|all)\\b",
+    "\\bdisappear",
+    "\\bdata loss\\b",
+    "\\bwiped\\b",
+    "\\bbackup\\b",
+    "\\bduplicat",
+    "\\bnotes? (were |are )?gone\\b",
+    "\\b(won'?t|wouldn'?t|can'?t|unable to|not) (open|load)\\b",
+    "\\blost (everything|all|my notes|data|hours|work|pages|years)\\b",
+    "\\bcorrupt",
+    "\\boffload",
+    "\\bre-?download",
+    "\\bicloud\\b",
+    "\\brestore\\b",
+    "\\bdeleted? my\\b"
+   ]
+  },
+  {
+   "id": "ux",
+   "label": "Confusing or clunky to use",
+   "kind": "complaint",
+   "patterns": [
+    "\\bconfus",
+    "\\bhard to (use|find|navigate|understand)\\b",
+    "\\bcomplicated\\b",
+    "\\bcluttered\\b",
+    "\\bunintuitive\\b",
+    "\\bnot intuitive\\b",
+    "\\bclunky\\b",
+    "\\btoo many (steps|clicks|taps)\\b",
+    "\\blearning curve\\b",
+    "\\bcan'?t find\\b",
+    "\\bfloating (tool ?bar|menu)",
+    "\\btool ?bar\\b",
+    "\\bin the way\\b",
+    "\\bzoom(ing)? (out|in)\\b"
+   ]
+  },
+  {
+   "id": "support",
+   "label": "Support that does not answer",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcustomer (service|support)\\b",
+    "\\bsupport (team|is|was)\\b",
+    "\\bno (response|reply)\\b",
+    "\\bnever (replied|responded|heard back)\\b",
+    "\\bticket\\b",
+    "\\bchat ?bot\\b",
+    "\\bsupport\\b",
+    "\\bno reply\\b",
+    "\\bunanswered\\b"
+   ]
+  },
+  {
+   "id": "account",
+   "label": "Login and account problems",
+   "kind": "complaint",
+   "patterns": [
+    "\\blog ?in\\b",
+    "\\bsign ?in\\b",
+    "\\bpassword\\b",
+    "\\blocked out\\b",
+    "\\bverification\\b",
+    "\\b2fa\\b",
+    "\\bdelete (my )?account\\b"
+   ]
+  },
+  {
+   "id": "notifications",
+   "label": "Notifications and spam",
+   "kind": "complaint",
+   "patterns": [
+    "\\bnotification",
+    "\\bspam",
+    "\\btoo many emails\\b",
+    "\\bpush\\b",
+    "\\breminders?\\b"
+   ]
+  },
+  {
+   "id": "ads",
+   "label": "Ads",
+   "kind": "complaint",
+   "patterns": [
+    "\\bads\\b",
+    "\\badvert",
+    "\\bad.?supported\\b",
+    "\\bpop.?ups?\\b"
+   ]
+  },
+  {
+   "id": "updates",
+   "label": "A redesign or update made it worse",
+   "kind": "complaint",
+   "patterns": [
+    "\\b(new|latest|recent) (update|version|design)\\b",
+    "\\bredesign",
+    "\\bused to be\\b",
+    "\\bbring back\\b",
+    "\\bsince the update\\b"
+   ]
+  },
+  {
+   "id": "privacy",
+   "label": "Privacy and permissions",
+   "kind": "complaint",
+   "patterns": [
+    "\\bprivacy\\b",
+    "\\btracking\\b",
+    "\\bsell(s|ing)? (my )?data\\b",
+    "\\bpermissions?\\b",
+    "\\bcreepy\\b"
+   ]
+  },
+  {
+   "id": "integrations",
+   "label": "Integrations, import and export",
+   "kind": "request",
+   "patterns": [
+    "\\bintegrat",
+    "\\bzapier\\b",
+    "\\bgoogle (calendar|sheets|drive)\\b",
+    "\\boutlook\\b",
+    "\\bslack\\b",
+    "\\bapi\\b",
+    "\\bexport\\b",
+    "\\bimport\\b",
+    "\\bcsv\\b",
+    "\\bwebhook"
+   ]
+  },
+  {
+   "id": "platforms",
+   "label": "Platforms, offline and mobile",
+   "kind": "request",
+   "patterns": [
+    "\\boffline\\b",
+    "\\bandroid\\b",
+    "\\bipad\\b",
+    "\\btablet\\b",
+    "\\bdesktop app\\b",
+    "\\bmac app\\b",
+    "\\bwindows\\b",
+    "\\bmobile (app|version)\\b",
+    "\\bweb version\\b",
+    "\\bmac(book)?\\b",
+    "\\biphone\\b",
+    "\\bcross.?platform\\b"
+   ]
+  },
+  {
+   "id": "customisation",
+   "label": "Customisation and control",
+   "kind": "request",
+   "patterns": [
+    "\\bcustomi[sz]",
+    "\\bdark mode\\b",
+    "\\btheme\\b",
+    "\\bbranding\\b",
+    "\\bwhite.?label\\b",
+    "\\btemplates?\\b",
+    "\\bsettings?\\b",
+    "\\boption to\\b"
+   ]
+  },
+  {
+   "id": "collaboration",
+   "label": "Teams and sharing",
+   "kind": "request",
+   "patterns": [
+    "\\bteam(s|mates?)?\\b",
+    "\\bshar(e|ing)\\b",
+    "\\bcollaborat",
+    "\\bmultiple (users|accounts|people)\\b",
+    "\\broles?\\b",
+    "\\bpermissions for\\b"
+   ]
+  },
+  {
+   "id": "ink",
+   "label": "Pen and ink feel (praise or complaint)",
+   "kind": "complaint",
+   "patterns": [
+    "\\bpen(s)?\\b.*\\b(feel|natural|smooth|realistic)",
+    "\\bwriting experience\\b",
+    "\\bhandwriting (feel|experience|looks)\\b",
+    "\\bink\\b",
+    "\\bwobbly\\b",
+    "\\bstabili[sz]",
+    "\\bsmoothing\\b",
+    "\\bfountain pen\\b",
+    "\\bpencil (tool|feel)\\b"
+   ]
+  },
+  {
+   "id": "pencil",
+   "label": "Apple Pencil gestures (squeeze, double tap, hover)",
+   "kind": "complaint",
+   "patterns": [
+    "\\bsqueeze\\b",
+    "\\bdouble.?tap\\b",
+    "\\bbarrel\\b",
+    "\\bhover"
+   ]
+  },
+  {
+   "id": "zoom",
+   "label": "Zoom behaviour and zoom-box writing",
+   "kind": "complaint",
+   "patterns": [
+    "\\bzoom"
+   ]
+  },
+  {
+   "id": "shapes",
+   "label": "Shapes, auto-shape and lasso",
+   "kind": "complaint",
+   "patterns": [
+    "\\bshapes?\\b",
+    "\\blasso\\b",
+    "\\bstraight line"
+   ]
+  },
+  {
+   "id": "export",
+   "label": "PDF import/export fidelity",
+   "kind": "complaint",
+   "patterns": [
+    "\\bexport",
+    "\\bpdf output\\b",
+    "\\bblurry\\b",
+    "\\bpicture quality\\b",
+    "\\bprint"
+   ]
+  },
+  {
+   "id": "navigation",
+   "label": "Page navigation, scrolling, reopening position",
+   "kind": "complaint",
+   "patterns": [
+    "\\bscroll",
+    "\\bpage 1\\b",
+    "\\blast (page|used)\\b",
+    "\\bswipe\\b",
+    "\\bturn the page\\b"
+   ]
+  },
+  {
+   "id": "organisation",
+   "label": "Library organisation (folders, groups, tags)",
+   "kind": "request",
+   "patterns": [
+    "\\bfolders?\\b",
+    "\\bsub.?folders?\\b",
+    "\\bgroups?\\b",
+    "\\btags?\\b",
+    "\\bbookmarks?\\b",
+    "\\borgani[sz]ation\\b"
+   ]
+  },
+  {
+   "id": "search_ocr",
+   "label": "Handwriting recognition and search",
+   "kind": "request",
+   "patterns": [
+    "\\bhandwriting recognition\\b",
+    "\\bsearch",
+    "\\bconvert (to|into) text\\b",
+    "\\btranscri",
+    "\\bocr\\b"
+   ]
+  },
+  {
+   "id": "canvas",
+   "label": "Infinite canvas / page size flexibility",
+   "kind": "request",
+   "patterns": [
+    "\\binfinite\\b",
+    "\\bwhiteboard\\b",
+    "\\bcanvas\\b",
+    "\\bpage sizes?\\b"
+   ]
+  },
+  {
+   "id": "ai",
+   "label": "Unwanted AI",
+   "kind": "complaint",
+   "patterns": [
+    "\\bai\\b",
+    "\\bchatgpt\\b"
+   ]
+  },
+  {
+   "id": "textbox",
+   "label": "Typing and text boxes",
+   "kind": "request",
+   "patterns": [
+    "\\btext ?box",
+    "\\btype (directly|text|my notes)\\b",
+    "\\bkeyboard\\b",
+    "\\btyping\\b"
+   ]
+  }
+ ]
+}

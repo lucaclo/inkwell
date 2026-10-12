@@ -1,0 +1,83 @@
+feature,area,priority,original,clone,notes
+Library with folders,library,must,yes,no,Nebo: collection > folder only (2 levels)
+Nested folders (unlimited depth),library,must,no,no,Top review request; Nebo forbids folders in folders
+Sort notes by name/created/modified/manual,library,should,yes,no,v6.0
+Grid and list library views,library,could,yes,no,
+Multi-select notes to move/delete,library,should,partial,no,Reviews ask for mass-move
+Trash for notes/folders,library,must,yes,no,Nebo trash excludes pages
+Recoverable deleted pages,library,must,no,no,Nebo: deleted pages cannot be recovered
+Fixed-size notebook pages (iPad-shaped),pages,must,yes,no,Nebo has page size + orientation choice
+Continuous vertical scroll through pages,pages,must,no,no,Nebo notebooks paginate via sidebar; reviews ask for continuous scroll
+Background picker per new page (lined/grid/blank),pages,must,partial,no,Nebo sets pattern per note not per page
+Add page in one gesture/tap at end of page,pages,must,no,no,Nebo needs ~3 taps via thumbnail menu
+Page thumbnail sidebar with reorder/duplicate/delete,pages,should,yes,no,
+Infinite board canvas,pages,skip,yes,no,Not in Luca's plan
+Responsive document mode with ink reflow,pages,skip,yes,no,Rewrites ink layout; conflicts with never-alter-ink
+Adjust vertical space (two-finger long-press + drag),pages,should,yes,no,Great pattern; insert space
+Zoom with lock and remembered zoom level,pages,could,yes,no,Boards only in Nebo
+Slim top toolbar,tools,must,yes,no,
+3 pen presets,tools,must,partial,no,"Nebo has pen types felt/fountain/brush + swatches, not presets"
+2 highlighter presets,tools,must,partial,no,
+Pressure sensitivity slider,tools,should,yes,no,
+Uniform (no pressure) stroke option,tools,should,partial,no,Reviews ask for truly uniform stroke
+Stroke eraser + precise eraser,tools,must,yes,no,
+Lasso freehand + rectangle with move/resize/copy,tools,must,yes,no,
+Custom colour palette with reorder,tools,should,yes,no,
+Ruler with rotate and snap,tools,could,yes,no,v7.2
+Laser pointer,tools,skip,yes,no,Presenting not needed
+Undo/redo buttons in top bar,tools,must,yes,no,
+Two-finger tap undo / three-finger redo,tools,must,yes,no,Added v6.7 after years of requests
+Apple Pencil Pro squeeze = eraser,pencil,must,no,no,Nebo squeeze opens palette; Luca wants eraser
+Pencil double-tap = palette,pencil,must,yes,no,Nebo: squeeze/double-tap opens floating palette
+Pencil hover preview of tool,pencil,should,yes,no,v6.5
+Pencil Pro haptic on snap/convert,pencil,should,yes,no,Delightful; v6.4
+Barrel roll for highlighter/pen angle,pencil,could,no,no,
+Palm rejection,pencil,must,yes,no,Reviews report stray lines from palm
+Scratch-out to erase gesture,gestures,must,yes,no,Most loved gesture; must be reversible and never fire on maths/drawings
+Gesture on/off toggles,gestures,must,no,no,Top complaint: cannot disable scratch/straighten/auto-format
+Join/split words by drawing a line,gestures,could,yes,no,Reversible transform only
+Underline/strike-through gesture actions,gestures,skip,yes,no,Misfire risk on maths (fraction bars)
+Frame to highlight gesture,gestures,could,yes,no,
+Hold-to-snap perfect shapes/lines/arrows,shapes,should,yes,no,Keep raw stroke; snapped geometry as reversible override
+Shape alignment guides,shapes,could,yes,no,
+Arrows snap to shape edges,shapes,could,yes,no,Useful for econ diagrams
+Axes/graph helper for econ diagrams,shapes,could,no,no,Nebo has none; reviews: line snapping ruins graphs
+Live line-by-line handwriting neatening (reversible),recognition,must,no,no,Nebo has no equivalent; its beautification is destructive
+Skip maths when neatening,recognition,must,no,no,Heuristics + manual mark; no Apple math API
+Toggle show original / neatened ink,recognition,must,no,no,Nebo has undo only
+Handwriting search (on-device),search,must,yes,no,Nebo v6.2; Inkwell via Apple Vision
+Search by note name,search,must,yes,no,Nebo only added v7.3 (2026)
+In-note search with highlights and next/prev,search,should,yes,no,
+Conversion preview with word candidates,recognition,could,yes,no,Documents only in Nebo
+Convert handwriting to typed text,recognition,could,yes,no,Lasso > Convert > Text
+Handwritten maths to LaTeX,recognition,could,yes,no,Needs ML model; Nebo 6.3
+Solve simple calculations,recognition,skip,yes,no,
+User dictionary for recognition,recognition,could,yes,no,Economics jargon
+Text boxes (typed text on page),content,must,yes,no,Tap empty space opens keyboard in Nebo (toggle)
+Images on page with crop/rotate,content,should,yes,no,
+Checklists/bullets from handwriting,content,skip,yes,no,
+PDF import (incl. multiple at once),pdf,must,yes,no,v7.5 multi-import
+PDF annotate with pens/highlighters,pdf,must,yes,no,
+"PDF export with/without annotations, flatten option",pdf,must,yes,no,
+Insert blank page into PDF,pdf,should,yes,no,
+Large PDF performance (500+ pages),pdf,must,partial,no,"Reviews: lag, freezes, vanishing letters"
+Optimise PDF (lossy),pdf,skip,yes,no,Irreversible in Nebo; violates Inkwell rule
+Export notebook pages as PDF/PNG,export,should,yes,no,
+Export .docx/text,export,skip,yes,no,
+"Sync via iCloud Drive folder, no account",sync,must,no,no,Nebo needs MyScript account; .nebo hidden in cloud
+Conflict handling without data loss,sync,must,partial,no,Nebo keeps both copies -> duplicate clutter; Inkwell should merge per page or keep both with clear UI
+Sync status per note,sync,should,yes,no,
+Readable open file format in the iCloud folder,sync,should,no,no,Users complain proprietary format locks them in
+Automatic local snapshots/versions,sync,must,no,no,Nebo: no automatic backup; reviewers lost months
+Manual library backup to file,sync,should,yes,no,
+Large-page warning banner,pages,could,yes,no,Nebo warns orange/red before data loss; Inkwell should never need it
+Mac (Catalyst) version,platform,must,partial,no,"Nebo runs iPad app on Apple silicon; reviews: crashes, login issues"
+Split view / two notes side by side,platform,could,yes,no,v6.7; later for Inkwell
+Tabs,platform,could,no,no,Requested in reviews
+App Shortcuts / Spotlight / Control Center,platform,could,yes,no,v6.1
+Dark mode with light pages option,display,should,partial,no,Reviews ask for white pages in dark mode
+"Recognition language chosen per note, immutable",recognition,skip,yes,no,Pitfall: never lock language
+AI summarise/quiz/chat/study space,ai,skip,yes,no,"Out of scope, needs server"
+Web-link sharing / collaboration,sharing,skip,yes,no,Out of scope
+Account system / subscription / paywall,account,skip,yes,no,Personal app; account friction is a top complaint
+Google Drive / Dropbox sync,sync,skip,yes,no,iCloud only

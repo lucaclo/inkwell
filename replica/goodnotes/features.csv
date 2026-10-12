@@ -1,0 +1,92 @@
+feature,area,priority,original,clone,notes
+Library with nested folders (unlimited depth),library,must,yes,no,S01/S02; Luca planned nested folders
+Grid and list view of library,library,should,yes,no,S01
+Folder colour/icon,library,could,yes,no,cosmetic
+Favourites (star documents),library,should,yes,no,S05
+Sort documents (name/date/manual),library,should,yes,no,manual sort is 1896-vote board idea
+Trash with recover for documents folders and pages,library,must,yes,no,S22; supports no-data-loss rule
+Create notebook with template/colour/size/orientation,notebook,must,yes,no,S04; Inkwell: iPad-shaped pages
+Per-page template choice when adding a page (blank/lined/grid),notebook,must,yes,no,S14; Luca's picker per new page
+Change template of an existing page,notebook,should,yes,no,S15
+Vertical continuous scroll option,navigation,must,yes,no,per-document setting in GN; Inkwell default vertical
+Horizontal paging option,navigation,skip,yes,no,Luca chose vertical scroll
+Sidebar with page thumbnails and drag reorder,navigation,must,yes,no,S16
+Multi-select pages: move/copy/rotate/export/delete,navigation,should,yes,no,S16
+Bookmarks + bookmarks-only filter,navigation,should,yes,no,733 votes for one-tap bookmark icon
+Outline / PDF table of contents import,navigation,should,yes,no,auto-imported from PDF TOC
+Tabs for open documents,navigation,could,yes,no,Luca: later; GN tabs criticised on Mac
+Return to last open document from library in one tap,navigation,should,partial,no,"GN lacks it: 2 reviews + 337-vote sidebar idea"
+Split view / two documents side by side,navigation,could,yes,no,Luca: later
+Pen tool with pressure,ink,must,yes,no,core
+Multiple pen styles (fountain/ball/brush),ink,should,yes,no,Inkwell needs only a good ballpoint + fountain
+Three pen presets + two highlighter presets in toolbar,toolbar,must,partial,no,GN shows colour swatches; Inkwell fixed slots
+Highlighter that draws behind ink,ink,must,yes,no,
+Highlighter width adjustable,ink,should,partial,no,1 review asks for highlighter size
+Straight-line highlighter / rectangle highlighter,ink,could,no,no,461-vote board idea
+Stroke stabilisation setting (default 0),ink,must,yes,no,users report artefacts even at zero; predicted strokes must never persist
+Pencil hover stroke preview,ink,should,yes,no,Pencil Pro/M-series hover
+Barrel roll affects fountain pen,ink,could,yes,no,Dynamic Ink
+Eraser: whole stroke and partial,eraser,must,yes,no,S09
+Squeeze = eraser,pencil,must,no,no,GN uses squeeze for palette; Inkwell spec squeeze = eraser
+Double-tap = palette,pencil,must,partial,no,GN puts palette on squeeze; Inkwell on double-tap
+Scribble to erase,eraser,could,yes,no,can misfire on cursive; keep off by default
+Undo two-finger tap / redo three-finger tap,gestures,must,yes,no,add toggle (GN has none)
+Gesture toggles (disable palm/long-press popups),gestures,must,no,no,"GN can't disable; 7 reviews + 136-vote idea"
+Lasso select move resize recolour,lasso,must,yes,no,S11
+Lasso filters (handwriting/images/text),lasso,should,yes,no,
+Lasso never becomes the sticky fallback tool,lasso,must,no,no,GN 7.0 regression; 543-vote idea
+Copy/cut/paste/duplicate of selection,lasso,must,yes,no,copy/paste crashes in GN reviews
+Draw-and-hold to snap straight line / shape with pen,shapes,must,yes,no,best pattern for economics diagrams
+Shape tool (rect/ellipse/line/arrow),shapes,should,yes,no,
+Arcs / partial shapes not forced to ovals,shapes,should,no,no,"GN regression (1 review); 619-vote more-shapes idea"
+Snapping/alignment guides off by default,shapes,should,no,no,GN guides block free placement (1 review)
+Shape stroke width follows pen,shapes,could,no,no,103-vote idea
+Connectors that stay attached,shapes,could,yes,no,diagrams; nice-to-have
+Ruler,shapes,could,yes,no,
+Zoom window for small writing,ink,could,yes,no,HN maths user cites it
+Text boxes,text,must,yes,no,Luca planned; keep text tool sticky
+Text box default font/size remembered,text,should,partial,no,GN removed default font lock (several reviews)
+Edit Handwriting: reflow + straighten (manual),neatening,should,yes,no,GN closest analogue to neatening
+Live reversible line-by-line neatening (maths skipped),neatening,must,no,no,Inkwell-only; 8 reviews + 452-vote auto-refine idea
+Original ink never altered (neatening as view transform),neatening,must,no,no,Inkwell hard rule
+Import PDF as new document,pdf,must,yes,no,F07
+Import PDF into current document at position,pdf,should,yes,no,
+Annotate PDF pages with all tools,pdf,must,yes,no,
+Export PDF flattened with searchable handwriting layer,pdf,must,yes,no,S18
+Export PDF editable (keeps outline/links),pdf,could,yes,no,
+Export arbitrary page range,pdf,should,no,no,GN only current/all from share sheet (2 reviews)
+Import images / photos,pdf,should,yes,no,
+Import Word/PowerPoint,pdf,skip,yes,no,convert to PDF first
+Handwriting search across library (on-device),search,must,yes,no,F09; must handle cursive
+Search within document with hit highlight,search,must,yes,no,1 review says GN removed highlight
+Search PDF text layer,search,must,yes,no,
+OCR for scanned PDFs without text layer,search,could,no,no,GN doesn't add OCR to imports
+Recognition handles capitals correctly,search,should,partial,no,3 reviews about capitals
+No spellcheck/recognition nags on handwriting,search,must,no,no,GN red dots + language-download prompts
+Convert handwriting to text,search,could,yes,no,
+Maths recognition/search,search,skip,no,no,Luca: maths skipped
+iCloud sync across iPad and Mac,sync,must,yes,no,GN uses CloudKit; Inkwell uses an iCloud Drive folder
+Documents visible as files in iCloud Drive / Files app,sync,must,no,no,697-vote board idea; Inkwell core
+Conflict copies instead of silent overwrite,sync,must,no,no,data-loss reviews
+Sync status indicator in library,sync,must,yes,no,S20; GN shows false failures (1 review)
+Automatic PDF mirror backup,sync,should,yes,no,GN Auto Backup one-way; Inkwell could mirror PDF into the folder
+Manual backup / export whole library,sync,should,yes,no,
+Works fully offline with no account,sync,must,no,no,GN forces sign-in; session expiry (13 reviews)
+Mac app with undo/redo button and keyboard shortcuts,mac,must,partial,no,GN Mac complaints (30 keyword hits)
+Mac drag-drop PDF import,mac,should,yes,no,
+Customise toolbar (hide/reorder),toolbar,could,yes,no,Inkwell: slim fixed toolbar; don't move tools between versions
+Undo/redo button position left/right,toolbar,could,yes,no,
+Focus / full-screen mode,toolbar,should,no,no,1084-vote board idea + 1 review
+Dark paper / dark mode,toolbar,could,partial,no,1156-vote true dark mode idea
+Layers,notebook,skip,yes,no,not needed for Luca
+Password-lock notebook,notebook,skip,yes,no,GN lockouts with no recovery (1 review)
+Internal links between pages,notebook,could,yes,no,
+Stickers / tape / elements,notebook,skip,yes,no,out of scope
+Audio recording synced to ink,out of scope,skip,yes,no,mention only
+Goodnotes AI / Math AI / summaries,out of scope,skip,yes,no,mention only
+Marketplace templates and stickers,out of scope,skip,yes,no,their content
+Collaboration / sharing links,out of scope,skip,yes,no,mention only
+Study sets / flashcards,out of scope,skip,yes,no,mention only
+Text documents (typed docs),out of scope,skip,yes,no,mention only
+Whiteboard infinite canvas,out of scope,skip,yes,no,mention only; GN overheating reports
+Accounts subscriptions paywalls,out of scope,skip,yes,no,Inkwell has none

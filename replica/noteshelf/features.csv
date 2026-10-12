@@ -1,0 +1,83 @@
+feature,area,priority,original,clone,notes
+Nested folders (groups inside groups),library,must,yes,no,NS3 nests groups but top-level categories cannot nest; Inkwell should use plain unlimited nesting
+Drag a notebook onto another to make a folder,library,could,yes,no,fast but surprising; Inkwell can offer drag-to-folder instead
+Manual sort plus sort by last opened/modified/name,library,should,yes,no,
+Notebook covers with custom image,library,skip,yes,no,decorative; Luca does not need covers
+Pin notebooks / Home of recent notebooks,library,should,yes,no,
+Trash with recover for notebooks and pages,library,must,yes,no,fits never-destroy rule
+Password / Face ID lock per notebook,library,could,yes,no,
+Tags on notebooks and pages,library,could,yes,no,
+Content views (all photos/recordings/bookmarks across notebooks),library,skip,yes,no,
+Open notebook in a new window / side by side,editor,could,yes,no,Luca plans split view later
+Reopen notebook at last viewed page,editor,must,partial,no,reviewers say NS3 resets to page 1
+Vertical continuous scroll,editor,must,yes,no,NS3 default for new installs; also horizontal and two-page
+Two-page spread view,editor,skip,yes,no,new in v8.0
+Zoom presets from a pill,editor,should,yes,no,v8.0; users asked for fixed zoom levels
+Zoom snaps back / no zoom-out below fit width,editor,must,no,no,top zoom complaint after a 2026 update
+Zoom box writing with auto-advance,editor,could,yes,no,useful for small maths subscripts
+Focus mode (4-finger tap hides all chrome),editor,should,yes,no,
+Read-only mode (tap to hide toolbar no accidental marks),editor,should,yes,no,a reviewer asked for it as the default for PDFs
+Customisable toolbar (add/remove/reorder tools),toolbar,could,yes,no,Inkwell fixes a slim bar with 3 pens + 2 highlighters
+Toolbar placement top or bottom,toolbar,skip,yes,no,
+Floating mini toolbar for colour and size,toolbar,skip,yes,no,widely disliked when it covers the page; put swatches in the slim top bar
+3 one-tap colour swatches with long-press edit,toolbar,must,yes,no,Inkwell: 3 pen slots each with fixed colour and size
+Undo button reachable for the off hand (top-left),toolbar,must,yes,no,praised in a 5-star review
+Pen types ball/felt/fountain/pencil,ink,must,yes,no,most-praised area; fountain pen suits cursive
+Pressure sensitivity toggle,ink,must,yes,no,
+Size slider in 0.1 mm steps + presets,ink,should,yes,no,
+Custom colour with hex and eyedropper,ink,should,yes,no,
+Unsmoothed precise strokes (no forced smoothing),ink,must,yes,no,praised; Inkwell keeps raw ink and neatens reversibly on top
+Optional stroke stabilisation / beautification,ink,must,no,no,asked for in 6 reviews; Inkwell's live reversible neatening covers it
+Highlighter with straight-line option,ink,must,yes,no,
+Highlighter opacity control,ink,should,no,no,fixed translucency criticised
+Dotted / dashed line styles,ink,could,yes,no,useful for economics diagrams
+Eraser: whole stroke / partial / highlighter-only,eraser,must,yes,no,highlighter-only erase is handy over PDFs
+Eraser auto-return to previous tool,eraser,should,yes,no,Inkwell squeeze = eraser makes this mostly moot
+Scribble to erase,eraser,could,yes,no,Android only per GP review
+Lasso move / resize / recolour,lasso,must,yes,no,
+Lasso convert handwriting to text,lasso,could,yes,no,
+Save lasso selection as reusable clip,lasso,should,yes,no,reusable axes for supply/demand diagrams
+Hold at stroke end to snap to shape,shapes,must,yes,no,keep the original stroke; snapping must be its own undo step
+Editable shape handles after drawing,shapes,should,yes,no,
+Preset shapes + shape snapping,shapes,should,yes,no,
+Ruler tool,shapes,should,yes,no,
+Filled shapes,shapes,could,no,no,asked for in one review
+Bring to front / send to back,shapes,could,yes,no,
+Paper picker per new page (plain/ruled/grid/dotted),templates,must,yes,no,NS3 needs 3 taps via + > Page from template
+Template colour and line height customisation,templates,must,yes,no,
+Device-sized pages,templates,must,yes,no,
+Import custom PDF/PNG as a template,templates,could,yes,no,
+Remember last paper choice as default for quick notes,templates,must,yes,no,
+Template marketplace / planners / stickers,templates,skip,yes,no,licensed content and not needed
+Import PDF and annotate,pdf,must,yes,no,
+Insert blank page between PDF pages,pdf,must,yes,no,
+PDF import at full resolution (no blur),pdf,must,partial,no,2 GP reviews say imports are blurry
+Export current/selected/all pages to PDF,export,must,yes,no,
+Export looks identical to screen (vector),export,must,no,no,us review 2026-02-03 and GP highlighter-outline bug
+Export toggles: include template / page numbers,export,could,yes,no,
+Bookmarks with name and colour as a table of contents,navigation,should,yes,no,
+Page thumbnail grid with multi-select move/copy,navigation,must,yes,no,
+Copy/move pages to another notebook at a given position,navigation,should,yes,no,
+Handwriting search across all notebooks,search,must,yes,no,NS3 indexes 60+ languages; Inkwell on-device; skip maths
+Search in PDF text,search,must,yes,no,
+iCloud sync across iPad and Mac,sync,must,yes,no,NS3 uses an app container; Inkwell uses a visible iCloud Drive folder
+Notebooks always kept local (no eviction / grey-out),sync,must,no,no,NS3 notebooks grey out and need re-download
+Launch never blocks on iCloud,sync,must,no,no,NS3 help article admits launch delays on iCloud errors
+Crash-safe autosave (no lost minutes),sync,must,no,no,7+ reviews lost recent work on crash
+Notebook opens in older/newer app versions,sync,must,no,no,'please update your app' lock-out reviews
+Per-page or journaled storage so one corruption cannot kill a notebook,sync,must,no,no,
+One-way backup to another cloud in PDF,sync,could,yes,no,deletes never propagate
+Export entire library as zip with folder structure,sync,should,yes,no,
+Open documented file format,sync,should,no,no,GP reviewer complains backups are proprietary
+Apple Pencil double-tap action configurable,pencil,must,yes,no,Inkwell: double-tap = palette
+Pencil Pro squeeze menu,pencil,must,yes,no,NS3 opens a tool menu; it often appears mid-screen (bug since Nov 2025). Inkwell: squeeze = eraser
+Pencil Pro barrel roll (fountain/highlighter angle),pencil,should,unknown,no,no evidence NS3 supports it
+Hover preview of nib,pencil,could,unknown,no,
+Palm rejection presets for hand posture,pencil,should,yes,no,6 writing styles incl. left-handed
+Mac app with keyboard shortcuts and multiple windows,mac,must,yes,no,Mac launch failures in 3+ reviews
+Text boxes,text,must,yes,no,users dislike sliding boxes; make them stable
+Audio recording synced to notes,audio,skip,yes,no,out of scope
+Noteshelf AI summarise/translate,ai,skip,yes,no,server-side; conflicts with on-device
+Presentation mode with laser pointer,editor,skip,yes,no,
+Apple Watch / iPhone / Android / Windows clients,platforms,skip,yes,no,
+Subscription paywall,billing,skip,yes,no,personal app

@@ -1,0 +1,329 @@
+{
+ "_about": "Themes reviews.py sorts feedback into. Patterns are Python regular expressions, matched case-insensitively against the review text. kind is complaint (something users hate) or request (something users want that is missing). Edit freely: add the app category's own words (for a booking app: double booking, time zone, no-show). Adapted for handwriting note-taking apps (Nebo/MyScript Notes recon for Inkwell).",
+ "request_patterns": [
+  "\\bi wish\\b",
+  "\\bplease add\\b",
+  "\\bwould be (nice|great|good|helpful)\\b",
+  "\\bwould love\\b",
+  "\\bneeds? (a|an|the|to|more)\\b",
+  "\\bno way to\\b",
+  "\\bthere'?s no (way|option)\\b",
+  "\\b(can'?t|cannot|unable to) (even )?(add|change|edit|set|choose|export|import|customi[sz]e|connect|undo|delete|turn off)\\b",
+  "\\b(missing|lacks|lacking)\\b",
+  "\\bdoesn'?t (have|support|let|allow)\\b",
+  "\\bif only\\b",
+  "\\bfeature request\\b",
+  "\\bwhy (can'?t|isn'?t|doesn'?t)\\b"
+ ],
+ "themes": [
+  {
+   "id": "billing",
+   "label": "Billing, cancelling and refunds",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcharged\\b",
+    "\\brefund",
+    "\\bcancel(l?ing|l?ed|lation)?\\b",
+    "\\bauto.?renew",
+    "\\bhidden (fee|charge)",
+    "\\bbilling\\b",
+    "\\bscam\\b",
+    "\\bcredit card\\b"
+   ]
+  },
+  {
+   "id": "bugs",
+   "label": "Bugs and crashes",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcrash(es|ed|ing)?\\b",
+    "\\bbugs?\\b",
+    "\\bbuggy\\b",
+    "\\bglitch",
+    "\\bfreez(e|es|ing)\\b",
+    "\\bbroken\\b",
+    "\\b(doesn'?t|does not|stopped) work",
+    "\\bnot working\\b",
+    "\\berror\\b"
+   ]
+  },
+  {
+   "id": "performance",
+   "label": "Slow, laggy, heavy",
+   "kind": "complaint",
+   "patterns": [
+    "\\bslow\\b",
+    "\\blag(gy|s)?\\b",
+    "\\bloading\\b",
+    "\\btakes forever\\b",
+    "\\bbattery\\b",
+    "\\bsluggish\\b",
+    "\\bheavy\\b"
+   ]
+  },
+  {
+   "id": "ux",
+   "label": "Confusing or clunky to use",
+   "kind": "complaint",
+   "patterns": [
+    "\\bconfus",
+    "\\bhard to (use|find|navigate|understand)\\b",
+    "\\bcomplicated\\b",
+    "\\bcluttered\\b",
+    "\\bunintuitive\\b",
+    "\\bnot intuitive\\b",
+    "\\bclunky\\b",
+    "\\btoo many (steps|clicks|taps)\\b",
+    "\\blearning curve\\b",
+    "\\bcan'?t find\\b"
+   ]
+  },
+  {
+   "id": "support",
+   "label": "Support that does not answer",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcustomer (service|support)\\b",
+    "\\bsupport (team|is|was)\\b",
+    "\\bno (response|reply)\\b",
+    "\\bnever (replied|responded|heard back)\\b",
+    "\\bticket\\b",
+    "\\bchat ?bot\\b"
+   ]
+  },
+  {
+   "id": "account",
+   "label": "Login and account problems",
+   "kind": "complaint",
+   "patterns": [
+    "\\blog ?in\\b",
+    "\\bsign ?in\\b",
+    "\\bpassword\\b",
+    "\\blocked out\\b",
+    "\\bverification\\b",
+    "\\b2fa\\b",
+    "\\bdelete (my )?account\\b"
+   ]
+  },
+  {
+   "id": "privacy",
+   "label": "Privacy and permissions",
+   "kind": "complaint",
+   "patterns": [
+    "\\bprivacy\\b",
+    "\\btracking\\b",
+    "\\bsell(s|ing)? (my )?data\\b",
+    "\\bpermissions?\\b",
+    "\\bcreepy\\b"
+   ]
+  },
+  {
+   "id": "paywall",
+   "label": "Paywall, subscription switch, features taken away",
+   "kind": "complaint",
+   "patterns": [
+    "\\bsubscri",
+    "\\bpaywall",
+    "\\bpaid (for|version)\\b",
+    "\\bbought\\b",
+    "\\bpurchase",
+    "\\blifetime\\b",
+    "\\bpremium\\b",
+    "\\bmoney\\b",
+    "\\bgreed",
+    "\\bfree (plan|tier|version|trial)\\b",
+    "\\bexpensive\\b",
+    "\\bnot free\\b",
+    "\\btrial\\b",
+    "\\bpric(e|es|ey|ing)\\b"
+   ]
+  },
+  {
+   "id": "sync",
+   "label": "Sync, duplicates and lost notes",
+   "kind": "complaint",
+   "patterns": [
+    "\\bsync",
+    "\\blost\\b",
+    "\\bdisappear",
+    "\\bdata loss\\b",
+    "\\bwiped\\b",
+    "\\bbackup\\b",
+    "\\bback(ed)? up\\b",
+    "\\bduplicat",
+    "\\bconflict",
+    "\\bicloud\\b",
+    "\\bgoogle drive\\b",
+    "\\bdropbox\\b",
+    "\\bdeleted\\b"
+   ]
+  },
+  {
+   "id": "recognition_good",
+   "label": "Praise: handwriting recognition/conversion",
+   "kind": "complaint",
+   "patterns": [
+    "\\brecogni[sz]",
+    "\\bconvert",
+    "\\bconversion\\b",
+    "\\bhandwriting to text\\b",
+    "\\bocr\\b",
+    "\\bicr\\b",
+    "\\bcursive\\b",
+    "\\bmessy handwriting\\b",
+    "\\bterrible handwriting\\b",
+    "\\bbad handwriting\\b",
+    "\\btranscri"
+   ]
+  },
+  {
+   "id": "auto_magic",
+   "label": "Auto behaviour misfires (gestures, straight lines, auto-format, reflow)",
+   "kind": "complaint",
+   "patterns": [
+    "\\bgesture",
+    "\\bscratch",
+    "\\bscribbl",
+    "\\bstraight line",
+    "\\bauto.?(format|correct|cross|underlin|shap|highlight)",
+    "\\bsnap",
+    "\\bmind of its own\\b",
+    "\\bwithout my permission\\b",
+    "\\bturn (it )?off\\b",
+    "\\bdisable\\b",
+    "\\bcan'?t be disabled\\b",
+    "\\breflow",
+    "\\bjump(ing|s)? (around|up)\\b",
+    "\\bguess"
+   ]
+  },
+  {
+   "id": "math",
+   "label": "Maths recognition and notation",
+   "kind": "request",
+   "patterns": [
+    "\\bmath",
+    "\\bequation",
+    "\\blatex\\b",
+    "\\bformula",
+    "\\bfraction",
+    "\\bcalculus\\b",
+    "\\bintegral",
+    "\\bphysics\\b",
+    "\\bchemistry\\b",
+    "\\bengineering\\b"
+   ]
+  },
+  {
+   "id": "organisation",
+   "label": "Folders, nesting, sorting and organisation",
+   "kind": "request",
+   "patterns": [
+    "\\bfolder",
+    "\\bsubfolder",
+    "\\bcollection",
+    "\\borgani[sz]",
+    "\\bsort(ing)?\\b",
+    "\\bnotebooks? inside\\b",
+    "\\bmove (notes|multiple)\\b"
+   ]
+  },
+  {
+   "id": "pdf",
+   "label": "PDF import, annotation, export",
+   "kind": "request",
+   "patterns": [
+    "\\bpdf",
+    "\\bannotat",
+    "\\bexport",
+    "\\bimport",
+    "\\bslides\\b",
+    "\\bprint"
+   ]
+  },
+  {
+   "id": "undo",
+   "label": "Undo/redo access",
+   "kind": "request",
+   "patterns": [
+    "\\bundo\\b",
+    "\\bredo\\b",
+    "\\btwo.?finger tap\\b"
+   ]
+  },
+  {
+   "id": "ink",
+   "label": "Pen feel, ink rendering, palm rejection, pressure",
+   "kind": "request",
+   "patterns": [
+    "\\bpen(s)?\\b",
+    "\\bink\\b",
+    "\\bfountain\\b",
+    "\\bpressure\\b",
+    "\\bpalm\\b",
+    "\\bstroke",
+    "\\bpencil\\b",
+    "\\bhighlighter\\b",
+    "\\bbrush\\b",
+    "\\bwriting experience\\b"
+   ]
+  },
+  {
+   "id": "layout",
+   "label": "Page layout, templates, scrolling, zoom",
+   "kind": "request",
+   "patterns": [
+    "\\btemplate",
+    "\\bpaper\\b",
+    "\\bgrid\\b",
+    "\\blined\\b",
+    "\\bbackground",
+    "\\bscroll",
+    "\\bzoom",
+    "\\bpage size\\b",
+    "\\bletter size\\b",
+    "\\bcornell\\b",
+    "\\bcontinuous\\b",
+    "\\badd(ing)? (a )?pages?\\b"
+   ]
+  },
+  {
+   "id": "search",
+   "label": "Search handwritten notes",
+   "kind": "request",
+   "patterns": [
+    "\\bsearch",
+    "\\bsearchable\\b",
+    "\\bfind my\\b"
+   ]
+  },
+  {
+   "id": "ai",
+   "label": "AI / bloat distracting from the core",
+   "kind": "complaint",
+   "patterns": [
+    "\\bai\\b",
+    "\\bquiz",
+    "\\bstudy space\\b",
+    "\\bbells and whistles\\b",
+    "\\bbloat",
+    "\\bdistract"
+   ]
+  },
+  {
+   "id": "mac",
+   "label": "Mac and multi-device",
+   "kind": "request",
+   "patterns": [
+    "\\bmac\\b",
+    "\\bmacbook\\b",
+    "\\blaptop\\b",
+    "\\bdesktop\\b",
+    "\\bwindows\\b",
+    "\\bandroid\\b",
+    "\\biphone\\b",
+    "\\bcross.?platform\\b"
+   ]
+  }
+ ]
+}

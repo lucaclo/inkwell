@@ -1,0 +1,68 @@
+feature,area,priority,original,clone,notes
+Nested folders for notes,organisation,must,yes,no,Notes has folders + subfolders; Luca wants nested folders
+New note in one tap from list,organisation,must,yes,no,Notes happy path = 1 tap; match it
+First handwritten line suggested as note title,organisation,should,yes,no,Uses recognition; on Inkwell needs PKStrokeRecognizer (iPadOS 27)
+Pencil-down starts writing without entering a mode,canvas,must,yes,no,Notes switches to Markup automatically when Pencil touches
+Finger scrolls / Pencil draws (pencil-only drawing),canvas,must,yes,no,PKCanvasView.drawingPolicy
+Lines / grid / blank paper background,canvas,must,yes,no,Notes: per note + default in Settings; Inkwell: per new page picker
+Vertical continuous scroll of pages,canvas,must,partial,no,Notes is one long canvas not pages; Inkwell wants iPad-shaped pages in vertical scroll
+Performance stays smooth on long notes (many pages),canvas,must,no,no,Notes lags after 4-5 pages per users; tile/segment rendering per page
+Tool picker with pens/markers/pencil/fountain pen/eraser/lasso/ruler,tools,must,yes,no,PKToolPicker; Inkwell wants slim top bar with 3 pens + 2 highlighters
+Custom tool slots (3 pens + 2 highlighters),tools,must,no,no,PKToolPickerCustomItem / distinct identifiers (iPadOS 18)
+Tool palette can be dragged to any edge / auto-minimize,tools,could,yes,no,Inkwell plans fixed slim top bar
+Line weight presets + opacity slider,tools,must,yes,no,
+Colour picker (swatches + grid/spectrum/sliders),tools,should,yes,no,
+Pixel eraser and object (stroke) eraser,tools,must,yes,no,
+Lasso select / move / recolour strokes,tools,must,yes,no,
+Double-tap word / triple-tap sentence selection of handwriting,editing,should,yes,no,Needs recognition-based word grouping
+Ruler with two-finger rotate,tools,should,yes,no,PKCanvasView.isRulerActive; useful for economics axes
+Draw-and-pause shape snapping,diagrams,should,yes,no,No public recogniser; build own; keep freehand by default and offer snap on hold; undo restores freehand
+Haptic tick on snap / alignment (Pencil Pro),diagrams,should,yes,no,UICanvasFeedbackGenerator.alignmentOccurred / pathCompleted
+Squeeze opens palette / action,pencil,must,yes,no,Inkwell: squeeze = eraser; respect preferredSqueezeAction (iPadOS 17.5)
+Double-tap switches tool / palette,pencil,must,yes,no,Inkwell: double-tap = palette
+Hover preview of tool before marking,pencil,should,yes,no,UIPencilHoverPose / zOffset; prefersHoverToolPreview
+Barrel roll affects fountain pen / highlighter angle,pencil,could,yes,no,Notes users asked how to turn it OFF for note-taking; default off for pens
+Pencil Pro haptics on squeeze,pencil,should,yes,no,System provides on squeeze
+Auto-refine handwriting live as you write,neatening,must,yes,no,Inkwell core idea; but must be reversible and never alter original ink (Notes replaces ink)
+Manual Refine of selection with strength slider,neatening,should,yes,no,Inkwell: per-line or selection neaten with intensity
+Straighten (level) a selected line,neatening,must,yes,no,Geometric baseline correction = transform layer
+Neatening reversible per line / globally,neatening,must,no,no,Notes has no documented way to get original ink back after auto-refine; Inkwell's differentiator
+Maths skipped by neatening,neatening,must,no,no,Notes has no maths-skip; users of wavy strokes/kanji/capitals report damage
+Neatening never drops input while animating,neatening,must,no,no,MacStories: Notes stops accepting writing for a beat during refine
+Neatening never moves words off the line / slopes them,neatening,must,no,no,Users report random sloping and jumped lines in Notes
+Handwriting spell-check underline + suggestion in own hand,neatening,skip,yes,no,Most-hated feature; also needs generative handwriting; never add
+Paste typed text as handwriting,editing,skip,yes,no,Generates fake ink; private Apple model
+Convert text box to handwriting,editing,skip,yes,no,Generates fake ink; private Apple model
+Scratch-out-and-hold to erase,editing,should,yes,no,Loved gesture (no tool switch); no API so implement own detector; must be undoable
+Insert space / reflow handwriting,editing,should,yes,no,Notes reflow is imprecise per users; Inkwell could do insert-space-below-line within a page
+Copy handwriting as text,editing,should,yes,no,PKStrokeRecognizer.recognizedText(strokeIDs:) iPadOS 27
+Translate selected handwriting,editing,skip,yes,no,Not needed
+Text boxes on the canvas,content,must,yes,no,PaperKit text markup on iPad 26; not listed for Mac Catalyst
+Insert shapes from menu,content,could,yes,no,PaperKit ShapeMarkup
+Insert images / drag images in,content,should,yes,no,
+Stickers / Image Wand / Genmoji,content,skip,yes,no,Not wanted; Apple Intelligence
+Import PDF and annotate,pdf,must,yes,no,Notes: PDF as attachment with Markup
+Export note as PDF with all pages,pdf,must,partial,no,Notes exports only first page of multipage PDF (Apple doc); users report blank pages
+Export as Markdown / open in Pages,export,could,yes,no,Recognised text export could be a Markdown sidecar
+Print,export,could,yes,no,
+Search handwriting across all notes,search,must,yes,no,PKStrokeRecognizer.search + indexableContent; iPadOS 27
+Find in note with highlights,search,must,yes,no,UIFindInteraction + PKStrokeRecognizer.search bounds
+Spotlight indexing of handwriting,search,could,yes,no,CSSearchableIndex + indexableContent
+Show what the recogniser read (confidence),search,could,no,no,HN users want visible interpretation to trust it
+Sync across iPad and Mac,sync,must,yes,no,Notes via iCloud account; Inkwell via user-picked iCloud Drive folder (free account cannot use iCloud containers)
+No data loss on crash / conflict,sync,must,partial,no,Users report vanished handwriting and reverts; Inkwell: atomic writes + NSFileVersion conflict copies + never auto-delete
+Works offline / on-device only,sync,must,yes,no,
+Open the same note on two devices safely,sync,must,partial,no,Users: handwriting vanished when note open on several devices
+Mac app can view and edit handwriting,platform,must,partial,no,Notes on Mac shows drawings but has no Pencil; Inkwell Catalyst can edit with mouse/trackpad
+Inline maths evaluation on "=",maths,skip,yes,no,Intrusive for users; Luca writes maths to think not to compute
+Graphs from equations,maths,skip,yes,no,Luca draws economics diagrams by hand
+Value scrubber on numbers,maths,skip,yes,no,
+Per-note setting to switch automatic behaviours off,settings,must,partial,no,Notes: math results per note; spell-check off only from iPadOS 26; Inkwell: every automatic behaviour has a visible off switch
+Settings discoverable (not buried in tool picker More menu),settings,should,no,no,Users could not find Auto-refine toggle
+Lock notes with password / Face ID,privacy,could,yes,no,
+Tabs / split view of two notes,navigation,could,partial,no,Planned later for Inkwell; Notes supports multiple windows
+More templates (Cornell / dot grid / graph paper),canvas,could,no,no,Notes only lines/grids
+Handwriting stabilisation (jitter smoothing while writing),neatening,could,no,no,Requested on Apple Community; Inkwell's neaten could include gentle smoothing as a transform-free display filter
+Collaboration / shared notes,sharing,skip,yes,no,Needs server; out of scope
+Math Notes in Calculator app,maths,skip,yes,no,Apple app integration
+Quick Note from corner swipe,capture,could,yes,no,System feature; Inkwell could support a fast "new page" shortcut

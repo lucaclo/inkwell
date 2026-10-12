@@ -1,0 +1,37 @@
+{
+  "_about": "Themes for Apple Notes (handwriting, Smart Script, Math Notes, Apple Pencil) feedback. Adapted from the replica-entrepreneur default for a handwritten note-taking app. Patterns are case-insensitive Python regexes.",
+  "request_patterns": [
+    "\\bi wish\\b", "\\bplease add\\b", "\\bwould be (nice|great|good|helpful)\\b", "\\bwould love\\b",
+    "\\bno way to\\b", "\\bthere'?s no (way|option)\\b", "\\bno option\\b", "\\bcan'?t (disable|turn (it )?off|undo)\\b",
+    "\\bcannot be disabled\\b", "\\bnot (currently )?possible to turn\\b", "\\bmust be a way\\b", "\\bhow (do i|to) (disable|turn off|stop)\\b",
+    "\\bmissing\\b", "\\bdoesn'?t (have|support|let|allow)\\b", "\\bif only\\b", "\\bfeature request\\b", "\\bwhy (can'?t|isn'?t|doesn'?t)\\b", "\\bwould be so helpful\\b"
+  ],
+  "themes": [
+    {"id": "alters_ink", "label": "It changes what I wrote (refine, spellcheck, shapes)", "kind": "complaint",
+     "patterns": ["\\breplac", "\\bwrong word", "\\bchang(es|ed|ing) (my|the)", "\\balter", "\\bslope", "\\bwonky", "\\bjumbled", "\\bmove (part of )?a line", "\\bmakes? my handwriting", "\\bunintelligible", "\\bobjectively worse", "\\bstraighten some curve", "\\bfix\\\" your handwriting", "\\bstole it"]},
+    {"id": "spellcheck", "label": "Handwriting spell-check underlines and suggestions", "kind": "complaint",
+     "patterns": ["\\bblue (dot|dotted|line|underline)", "\\bspell ?check", "\\bspelling", "\\bunderline", "\\bsuggestion"]},
+    {"id": "no_off_switch", "label": "Cannot turn it off / setting is buried", "kind": "complaint",
+     "patterns": ["\\bturn (it |this |the )?(feature )?off\\b", "\\bdisable", "\\bno option\\b", "\\bburying the settings", "\\bobscure", "\\bcan'?t find\\b", "\\btook me several hours\\b", "\\bnot showing up\\b", "\\bdoesn'?t show up\\b"]},
+    {"id": "math_intrusive", "label": "Math detection fires when I did not ask", "kind": "complaint",
+     "patterns": ["\\bmath", "\\bequation", "\\bequal sign", "\\bformula", "\\bsolve", "\\bautofill", "\\bsyntax highlight", "\\bred (dotted|underline)"]},
+    {"id": "data", "label": "Lost or vanished handwriting, sync", "kind": "complaint",
+     "patterns": ["\\bdisappear", "\\bvanish", "\\blost\\b", "\\bicloud\\b", "\\bsync", "\\breverted\\b", "\\bblank\\b", "\\bscribbles instead\\b"]},
+    {"id": "performance", "label": "Lag, heat, battery on long handwritten notes", "kind": "complaint",
+     "patterns": ["\\blag", "\\bslow", "\\bhot\\b", "\\bheat", "\\bbattery", "\\bfalls behind\\b", "\\bstop accepting\\b", "\\bfor a beat\\b", "\\bunusable\\b"]},
+    {"id": "pencil", "label": "Apple Pencil Pro gestures (barrel roll, squeeze, palette)", "kind": "complaint",
+     "patterns": ["\\bbarrel roll\\b", "\\bsqueeze", "\\btool palette\\b", "\\bpencil pro\\b", "\\bmagnetic case\\b"]},
+    {"id": "availability", "label": "Feature missing on my device / region / language", "kind": "complaint",
+     "patterns": ["\\bsupported\\b", "\\bmy ipad even support\\b", "\\bwill download when connected\\b", "\\bhebrew\\b", "\\bkanji\\b", "\\blanguage", "\\bisn'?t available\\b", "\\bonly available\\b"]},
+    {"id": "editing", "label": "Editing handwriting: space, reflow, paste as handwriting", "kind": "request",
+     "patterns": ["\\breflow", "\\bmake (room|space)\\b", "\\badd a sentence\\b", "\\bpaste", "\\binsertion cursor\\b", "\\bmoving text\\b", "\\beraser and back\\b", "\\bswitching to eraser\\b"]},
+    {"id": "export", "label": "Export, PDF and cross-device fidelity", "kind": "request",
+     "patterns": ["\\bexport", "\\bpdf", "\\bairdrop\\b", "\\bimage of the notes\\b", "\\bsearchable\\b", "\\bmulti-page\\b"]},
+    {"id": "control", "label": "Wants more control / opt-in behaviour", "kind": "request",
+     "patterns": ["\\bmore control\\b", "\\bbounding box\\b", "\\bdefault it to off\\b", "\\boption to\\b", "\\bper note\\b", "\\bshutting the hell up\\b", "\\bonly when you explicitly\\b", "\\bstabili[sz]ation\\b", "\\bsmooth"]},
+    {"id": "trust", "label": "Show me what the recogniser understood", "kind": "request",
+     "patterns": ["\\bconfidence\\b", "\\btrust\\b", "\\bintermediate representation\\b", "\\bmisinterpret", "\\btext representations\\b"]},
+    {"id": "praise", "label": "Praise (what works)", "kind": "complaint",
+     "patterns": ["\\bgame changer\\b", "\\bsubtle, but nice\\b", "\\bi love\\b", "\\bmost exciting\\b", "\\bpretty cool\\b", "\\bdreaming of\\b", "\\bimpressive\\b", "\\bnuts\\b", "\\bvision of the future\\b", "\\btop 5 improvements\\b", "\\bworks? (fine|for me)\\b"]}
+  ]
+}

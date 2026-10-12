@@ -19,3 +19,7 @@ build/
 # Secrets / local
 .env*
 .DS_Store
+
+# Raw third-party review dumps stay local (summaries in fixes.md/research.md are committed)
+replica/*/reviews.csv
+replica/*/feedback.md
